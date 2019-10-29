@@ -1,0 +1,47 @@
+<div class="register">
+  <div class="overlay">
+      <div class="container-fluid firstPlace">
+          <div class="row">
+            <div class="col-6 mt-3">
+              <a  href="/Home">
+                <img src="../../assets/Rectangle 1 (1).png" alt="">
+              </a>
+            </div>
+          </div>
+      </div>
+
+
+      <div class="container">
+        <div class="card card-form">
+          <div class="card-body">
+            <form action="" (ngSubmit)="submit()" [formGroup]="adminForm" novalidate>
+              <div class="form-group " [ngClass]="{'error':adminForm.controls.firstName.invalid && adminForm.controls.firstName.touched }">
+                <em *ngIf="adminForm.controls.firstName.invalid && adminForm.controls.firstName.touched">Required</em>
+                <input type="text" class="form-control" formControlName="firstName" placeholder="First Name.." required>
+              </div>
+              <div class="form-group" [ngClass]="{'error':adminForm.controls.lastName.invalid && adminForm.controls.lastName.touched }">
+                <em *ngIf="adminForm.controls.lastName.invalid && adminForm.controls.lastName.touched">Required</em>
+                <input type="text" class="form-control" formControlName="lastName" placeholder="Last Name" required>
+              </div>
+              <div class="form-group" [ngClass]="{'error':adminForm.controls.email.invalid && adminForm.controls.email.touched }">
+                <em *ngIf="adminForm.controls.email.invalid && adminForm.controls.email.touched">Required</em>
+                <input type="email" class="form-control" formControlName="email" placeholder="Email..." required>
+              </div>
+              <div class="form-group" [ngClass]="{'error':adminForm.controls.password.invalid && adminForm.controls.password.touched }">
+                <em *ngIf="adminForm.controls.password.invalid && adminForm.controls.password.touched">Required</em>
+                <input type="password" class="form-control" formControlName="password" placeholder="Password" required>
+              </div>
+              <div class="form-group" [ngClass]="{'error':adminForm.controls.password2.invalid && adminForm.controls.password2.touched }">
+                <em *ngIf="adminForm.controls.password2.invalid && adminForm.controls.password2.touched">Required</em>
+                <input type="password" class="form-control" formControlName="password2" placeholder="Confirm Password" required>
+              </div>
+              <div class="form-group mt-4">
+                <button type="submit" [disabled]="!adminForm.valid" class="btn form-control">register</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      </div>
+      </div>
+

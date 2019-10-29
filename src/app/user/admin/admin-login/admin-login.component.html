@@ -1,0 +1,34 @@
+<div class="loginsection">
+  <div class="overlay">
+      <div class="container-fluid firstPlace">
+          <div class="row">
+            <div class="col-6 mt-3">
+              <a  href="/Home">
+                <img src="../../assets/Rectangle 1 (1).png" alt="">
+              </a>
+            </div>
+          </div>
+          </div>
+          <div class="container">
+            <div class="card card-form">
+              <div class="card-body">
+                <form action="" [formGroup]= "adminLogin" (ngSubmit)="login()" novalidate>
+                  <div class="form-group m-2" [ngClass]="{'error': adminLogin.controls.email.invalid && adminLogin.controls.email.dirty}">
+                    <em *ngIf="adminLogin.controls.email.invalid && adminLogin.controls.email.dirty">Required</em>
+                    <input class="form-control" type="email" placeholder="Email..." formControlName="email" required>
+                  </div>
+                  <div class="form-group m-2 " [ngClass]="{'error': adminLogin.controls.password.invalid && adminLogin.controls.password.touched}">
+                      <em *ngIf="adminLogin.controls.password.invalid && adminLogin.controls.password.dirty">Required</em>
+                    <input class="form-control" type="password" placeholder="Password" formControlName="password" required>
+                  </div>
+                  <div class="form-group m-2 mt-4">
+                    <button class="btn form-control" [disabled]="!adminLogin.valid">Log in</button>
+                    <p class="float-right mt-3 font-weight-bold"><a href="/admin/register">Register</a></p>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          </div>
+          </div>

@@ -1,0 +1,45 @@
+<div class="loginsection">
+  <div class="overlay">
+      <div class="container-fluid firstPlace">
+          <div class="row">
+            <div class="col-6 mt-3">
+              <a  href="/Home">
+                <img src="../../assets/Rectangle 1 (1).png" alt="">
+              </a>
+            </div>
+          </div>
+          <div class="container">
+
+            <div class="card bg-dark card-form">
+              <div class="card-body">
+                <form action="" (ngSubmit) = "submit(formValues)" [formGroup]= "loginForm" >
+                  <div class="form-group m-3" [ngClass]="{'error':loginForm.controls.email.invalid && loginForm.controls.email.touched }">
+                      <h2 class="text-white mb-4">Sign In</h2>
+                      <em *ngIf="loginForm.controls.email.invalid && loginForm.controls.email.touched && loginForm.controls.email.errors.required ">Required</em>
+                  <input type="email" placeholder="Email address" class="form-control" formControlName="email">
+                  </div>
+                  <div class="form-group m-3"  [ngClass]="{'error':loginForm.controls.password.invalid && loginForm.controls.password.touched }" >
+                      <em *ngIf="loginForm.controls.password.invalid && loginForm.controls.password.touched && loginForm.controls.password.errors.required">Required</em>
+                  <input type="password" placeholder="Password" class="form-control" formControlName="password">
+                  </div>
+                  <div class="form-group m-3 mt-5" id="buttom">
+                      <button type="submit" [disabled]="!loginForm.valid" class="btn form-control">SIGN IN</button>
+                      <div class="row" id="remember">
+                        <div class="col-6 d-inline">
+                          <input type="checkbox" name="" id="">
+                          Remember me
+                        </div>
+                        <div class="col-6 float-right">
+                          <a class="text-decoration-none float-right" href="">Forgot Password?</a>
+                        </div>
+                      </div>
+                    <p>  New to pipes?  <a href="/join" class="text-decoration-none text-white"> Sign up now</a></p>
+                  </div>
+
+                </form>
+              </div>
+            </div>
+
+          </div>
+  </div>
+</div>

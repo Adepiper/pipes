@@ -1,0 +1,52 @@
+.firstPlace{
+  background: url('../../assets/multipleimages.jpg') repeat 0 0;
+
+  padding: 10px !important;
+  height: 80vh;
+  position: relative;
+  padding-top: 120px;
+  box-sizing: border-box;
+  -webkit-animation: slide 20s linear infinite;
+}
+.jumbotron{
+  background-color: rgba(0, 0, 0, 0.1) !important;
+   margin-top: 10vh;
+   font-family: sans-serif !important;
+}
+
+.link{
+background-color: firebrick !important;
+}
+
+#faqlink{
+  width: 60%;
+  display: grid;
+ margin-left: 20% !important;
+ background-color: rgb(85, 82, 82);
+ color: white !important;
+}
+
+
+
+@-webkit-keyframes slide {
+  from {background-position: 0,0;}
+  to {background-position: -400px 0;}
+}
+
+.overlay{
+    background-color: rgba(0, 0, 0, 0.75);
+  position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80vh;
+
+}
+
+.body{
+  background-color: rgb(42, 42, 43);
+  padding-top: 10vh !important;
+}
+.row{
+  width: 98% !important;
+}

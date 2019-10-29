@@ -1,0 +1,15 @@
+.firstPlace{
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.btn{
+  background-color: firebrick !important;
+  color: white;
+}
+input{
+  background-color: darkgray;
+}
+
+

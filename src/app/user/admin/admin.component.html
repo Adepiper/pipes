@@ -1,0 +1,45 @@
+<div class="loginsection">
+    <div class="overlay">
+        <div class="container-fluid firstPlace">
+            <div class="row">
+              <div class="col-6 mt-3">
+                <a  href="/Home">
+                  <img src="../../assets/Rectangle 1 (1).png" alt="">
+                </a>
+              </div>
+            </div>
+        </div>
+
+        <div class="container">
+          <div class="card card-form">
+            <div class="card-body">
+              <form action="" (ngSubmit)="submit()" [formGroup]=newMovie novalidate>
+                <div class="form-group m-4" [ngClass] ="{'error': newMovie.controls.name.dirty && newMovie.controls.name.invalid}">
+                  <em *ngIf="newMovie.controls.name.invalid && newMovie.controls.name.dirty">Required</em>
+                  <input type="text" class="form-control" formControlName="name" required placeholder="Movie name">
+                </div>
+                <div class="form-group m-4" [ngClass] ="{'error': newMovie.controls.imageUrl.dirty && newMovie.controls.imageUrl.invalid}">
+                  <em *ngIf="newMovie.controls.imageUrl.invalid && newMovie.controls.imageUrl.dirty">Required</em>
+                  <input type="text" class="form-control" formControlName="imageUrl" required placeholder="Image">
+                </div>
+                <div class="form-group m-4" [ngClass] ="{'error': newMovie.controls.time.dirty && newMovie.controls.time.invalid}">
+                    <em *ngIf="newMovie.controls.time.invalid && newMovie.controls.time.dirty">Required</em>
+                  <input type="text" class="form-control" formControlName="time" required placeholder="movie time">
+                </div>
+                <div class="form-group m-4" [ngClass] ="{'error': newMovie.controls.plot.dirty && newMovie.controls.plot.invalid}">
+                    <em *ngIf="newMovie.controls.plot.invalid && newMovie.controls.plot.dirty">Required</em>
+                  <input type="text" class="form-control" formControlName="plot" required placeholder="plot">
+                </div>
+                <div class="form-group m-4" [ngClass] ="{'error': newMovie.controls.year.dirty && newMovie.controls.year.invalid}">
+                    <em *ngIf="newMovie.controls.year.invalid && newMovie.controls.year.dirty">Required</em>
+                  <input type="text" class="form-control" formControlName="year" required placeholder="year of movie">
+                  <div class="form-group m-3">
+                     <button class="btn form-control" [disabled] =!newMovie.valid>submit</button>
+                    </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        </div>
+</div>

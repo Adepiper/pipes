@@ -1,0 +1,72 @@
+.loginsection{
+  background-image: url(../../../assets/cassette-electronics-equipment-157542.jpg);
+  min-height: 800px;
+}
+
+.overlay{
+    background-color: rgba(0, 0, 0, 0.75);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 800px;
+}
+
+.btn{
+  background-color: firebrick !important;
+  color: white;
+  }
+
+  input{
+    background-color: darkgray;
+  }
+
+  #remember{
+    margin-bottom: 250px;
+    color: darkgray;
+  }
+  #remember a {
+    color: darkgray;
+  }
+
+  #remember a:hover {
+  text-decoration: underline !important;
+  }
+
+
+  #buttom p{
+    color: darkgray;
+  }
+  .card{
+    background-color: rgba(0, 0, 0, 0.4) !important;
+  }
+
+  #buttom a:hover{
+    text-decoration-line: underline !important;
+  }
+  @media (min-width: 968px){
+    .container{
+      width: 40% !important;
+    }
+  }
+  em{
+    float: right;
+    color: #e05c65;
+
+  }
+  .error input{
+    background-color: #e3c3c5;
+
+  }
+  .error ::-webkit-input-placeholder{
+    color: #fff
+  }
+  .error ::-moz-placeholder{
+    color: #fff
+  }
+  .error:-moz-placeholder{
+   color: #fff
+  }
+  .error :-ms-input-placeholder{
+  color: #fff
+  }
