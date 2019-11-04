@@ -22,7 +22,7 @@ userRoutes.post('/signup', (req, res) => {
           password: req.body.password,
           phone: req.body.phone
         });
-        console.log(newUser);
+        // console.log(newUser);
 
         bycrpt.genSalt(10, (err, salt) => {
           bycrpt.hash(newUser.password, salt, (err, hash) => {
@@ -32,7 +32,7 @@ userRoutes.post('/signup', (req, res) => {
             newUser
               .save()
               .then(user => {
-                console.log(user);
+                // console.log(user);
                 return res.status(200).status('you can login');
               })
               .catch(err => console.log(err));
