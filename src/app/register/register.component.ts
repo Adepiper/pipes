@@ -1,9 +1,10 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormGroup, FormControl, Validators, AbstractControl, FormBuilder } from '@angular/forms';
 import { User } from '../user.model';
-import { inject } from '@angular/core/testing';
+
 import { TOASTR_TOKEN, Toastr } from '../service/toastr.service';
 import { AuthserviceService } from '../service/authservice.service';
+
 
 @Component({
   selector: 'app-register',
@@ -25,21 +26,25 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
 
     this.registerForm =  this.formBuilder.group ({
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
-     email: ['', Validators.required],
+      firstName: ['', [Validators.required, Validators.minLength(3)]],
+      lastName: ['', [Validators.required, Validators.minLength(3)]],
+     email: ['', [Validators.required, Validators.email]],
       phone: ['' , Validators.required],
         password: ['', [Validators.required, Validators.minLength(4)]],
-        password2: ['', Validators.required],
+        password2: ['', Validators.required, this.confirm]
 })
 
   }
 
-  passwordConfirming() {
-    if ( this.password === this.password2) {
-        return this.password2.valid;
+    confirm(control: AbstractControl){
+      const pass = control.parent.get('password').value;
+      const confirmPass = control.parent.get('password2').value;
+      return new Promise((resolve, reject) => {
+        if (pass === confirmPass){
+          resolve (true)
+        }
+      });
     }
-}
 
   submit(){
   this.auth.registerUser(this.registerForm.value)

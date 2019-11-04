@@ -31,7 +31,7 @@ export class AuthserviceService {
     phone: user.phone,
     }
 
-    return this.http.post('api/signup', body)
+    return this.http.post('api/user/signup', body)
   }
 
 
