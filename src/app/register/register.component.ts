@@ -4,6 +4,7 @@ import { User } from '../user.model';
 
 import { TOASTR_TOKEN, Toastr } from '../service/toastr.service';
 import { AuthserviceService } from '../service/authservice.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -21,7 +22,8 @@ export class RegisterComponent implements OnInit {
   phone: FormControl;
   password: FormControl;
   password2: FormControl;
-  constructor(private formBuilder: FormBuilder, @Inject(TOASTR_TOKEN) private toastr: Toastr, private auth: AuthserviceService ) { }
+  constructor(private formBuilder: FormBuilder, @Inject(TOASTR_TOKEN) private toastr: Toastr,
+              private auth: AuthserviceService, private router: Router ) { }
 
   ngOnInit() {
 
@@ -43,6 +45,7 @@ export class RegisterComponent implements OnInit {
         if (pass === confirmPass){
           resolve (true)
         }
+        resolve('Password missmatch')
       });
     }
 
@@ -50,7 +53,7 @@ export class RegisterComponent implements OnInit {
   this.auth.registerUser(this.registerForm.value)
     .subscribe((data: any) => {
         console.log(data)
-    })
+        this.router.navigate(['Login']);
+    });
   }
-
 }

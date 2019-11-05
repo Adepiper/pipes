@@ -7,21 +7,22 @@ const passport = require('./passport')
 let User = require('./user')
 
 userRoutes.route('/signup').post((req, res)=> {
-  let user = new User(req.body);
+  //let user = new User(req.body);
+  console.log(req.body);
 
-    User.findOne({email: email})
+    User.findOne({email: req.body.email})
       .then( user => {
         if (user){
           res.status(400).send("email already registered")
         } else {
           const newUser = new User({
-            firstName,
-            lastName,
-            email,
-            password,
-            phone,
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            email: req.body.email,
+            password: req.body.password,
+            phone: req.body.phone
           })
-
+          console.log(newUser)
 
            bycrpt.genSalt(10, (err, salt) => {
              bycrpt.hash(newUser.password, salt, (err, hash) => {
@@ -42,6 +43,7 @@ userRoutes.route('/signup').post((req, res)=> {
 })
 
 userRoutes.route('/login').get((req, res, next) => {
+  console.log(req.body)
     passport.authenticate('local', {
       failureFlash: true
     })(req, res, next)

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators, FormBuilder} from '@angular/forms'
 import { Router } from '@angular/router';
 import { AuthserviceService } from '../service/authservice.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 
 @Component({
@@ -11,6 +12,7 @@ import { AuthserviceService } from '../service/authservice.service';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
+  isError: boolean = false;
   constructor(private formBuilder: FormBuilder,private router:Router, private auth: AuthserviceService) { }
 
   ngOnInit() {
@@ -21,10 +23,14 @@ export class LoginComponent implements OnInit {
   }
 
   submit(){
-    if (this.loginForm.valid){
       this.auth.loginUser(this.loginForm.value.email, this.loginForm.value.password)
-      this.router.navigate(['movies'])
-    }
+        .subscribe((data: any) => {
+          console.log(data)
+          this.router.navigate(['movies'])
+        },
+        (err: HttpErrorResponse )=> {
+          this.isError = true;
+        })
   }
 
 }

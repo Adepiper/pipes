@@ -10,19 +10,24 @@ import { of } from 'rxjs';
 export class AuthserviceService {
   user: User;
   constructor(private http: HttpClient) { }
+
+
   loginUser(email: string, password: string){
 
-    let loginInfo = {email, password}
-    let options = {headers: new HttpHeaders({'Content-Type': 'application/json'})}
-    return this.http.post('/api/login', loginInfo, options)
-      .pipe(tap(data => {
-        this.user = <User>data['user']
-      }))
-        .pipe(catchError(err => {
-          return of(false)
-        }))
+    const body = {email, password}
+    const headers = new HttpHeaders().set('Content-Type', 'application/json');
+    const options = {
+      headers
+    }
+    return this.http.post('http://localhost:3000/user/login', body, options);
   }
+
+
   registerUser(user: User){
+    const headers = new HttpHeaders().set('Content-Type', 'application/json')
+    const options = {
+      headers
+    }
     const body : User = {
       firstName: user.firstName,
     lastName: user.lastName,
@@ -31,7 +36,7 @@ export class AuthserviceService {
     phone: user.phone,
     }
 
-    return this.http.post('api/user/signup', body)
+    return this.http.post('http://localhost:3000/user/signup', body, options)
   }
 
 

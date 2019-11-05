@@ -9,6 +9,7 @@ import { RouteActivatorService } from './service/route-activator.service';
 import { AdminComponent } from './user/admin/admin.component';
 import { AdminLoginComponent } from './user/admin/admin-login/admin-login.component';
 import { AdminRegisterComponent } from './user/admin/admin-register/admin-register.component';
+import { AuthGuard } from './guard/auth.guard';
 
 
 
@@ -31,7 +32,8 @@ export const appRoutes: Routes = [
 },
 {
   path: 'movies',
-  component: DashboardComponent
+  component: DashboardComponent,
+  canActivate: [AuthGuard]
 },
 {
   path: 'movies/details/:id',

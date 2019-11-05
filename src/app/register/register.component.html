@@ -37,7 +37,7 @@
                     <input formControlName="password" id="password" type="password" class="form-control" id="" placeholder="Password" required>
                   </div>
                   <div class="form-group m-3" [ngClass]="{'error':registerForm.controls.password2.invalid && registerForm.controls.password2.touched }" >
-                      <em *ngIf="registerForm.controls.password2.invalid && registerForm.controls.password2.touched && registerForm.controls.password2.errors.confirm">password Missmatch</em>
+                      <em *ngIf="registerForm.controls.password2.invalid && registerForm.controls.password2.touched && registerForm.controls.password2.errors.confirm">password missmatch</em>
 
                     <input formControlName="password2" id="password2" type="password"  class="form-control my-3" id="" placeholder="Confirm Password" required>
                     <span id="remember" ><p>got an account? <a href="/Login">Sign In</a></p></span>

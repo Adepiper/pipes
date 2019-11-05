@@ -22,6 +22,7 @@ import { AdminRegisterComponent } from './user/admin/admin-register/admin-regist
 import { FavoriteComponent } from './user/favorite/favorite.component';
 import { FavoriteService } from './service/favorite.service';
 import {HttpClientModule} from '@angular/common/http';
+import { AuthGuard } from './guard/auth.guard';
 declare let toastr: Toastr;
 
 @NgModule({
@@ -51,6 +52,7 @@ declare let toastr: Toastr;
     AuthserviceService,
     UserService,
     FavoriteService,
+    AuthGuard,
    {
      provide: TOASTR_TOKEN, useValue: toastr
    },
