@@ -11,22 +11,27 @@ export class AuthserviceService {
   user: User;
   constructor(private http: HttpClient) {}
   loginUser(email: string, password: string) {
-    let loginInfo = { email, password };
-    let options = {
+    const loginInfo = { email, password };
+    const options = {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     };
-    return this.http
-      .post('/api/login', loginInfo, options)
-      .pipe(
+    console.log(loginInfo);
+    return this.http.post(
+      'http://localhost:3000/user/login',
+      loginInfo,
+      options
+    );
+    /* .pipe(
         tap(data => {
-          this.user = <User>data['user'];
+          console.log(data);
+          this.user = data['user'];
         })
       )
       .pipe(
         catchError(err => {
           return of(false);
         })
-      );
+      ); */
   }
   registerUser(user: User) {
     const headers = new HttpHeaders().set('Content-Type', 'application/json');

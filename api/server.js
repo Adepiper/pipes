@@ -14,6 +14,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.use('/user', userRoutes);
+require('./user/passport');
 mongoose.connect(config.DB, { useNewUrlParser: true }).then(
   () => {
     console.log('Database is connected');

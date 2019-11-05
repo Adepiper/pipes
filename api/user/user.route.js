@@ -2,9 +2,10 @@ const express = require('express');
 const app = express();
 const userRoutes = express.Router();
 const bycrpt = require('bcryptjs');
-const passport = require('./passport');
+const passport = require('passport');
 
 let User = require('./user');
+let Passport = require('./passport');
 
 userRoutes.post('/signup', (req, res) => {
   console.log(req.body);
@@ -43,10 +44,33 @@ userRoutes.post('/signup', (req, res) => {
     .catch();
 });
 
-userRoutes.route('/login').get((req, res, next) => {
+userRoutes.post('/login', (req, res, next) => {
+  return passport.authenticate(
+    'local',
+    { session: false },
+    (err, passportUser, info) => {
+      if (err) {
+        return next(err);
+      }
+
+      if (passportUser) {
+        console.log(passportUser);
+        const user = passportUser;
+
+        return res.status(200).json(user);
+      }
+
+      return res.status(400).info;
+    }
+  )(req, res, next);
+
+  // res.status(401).json({ message: 'email or password incorrect' });
+});
+
+/* userRoutes.route('/login').get((req, res, next) => {
   passport.authenticate('local', {
     failureFlash: true
   })(req, res, next);
-});
+}); */
 
 module.exports = userRoutes;
