@@ -19,6 +19,7 @@ export class AuthserviceService {
     const options = {
       headers
     }
+    console.log(body);
     return this.http.post('http://localhost:3000/user/login', body, options);
   }
 
