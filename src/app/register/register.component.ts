@@ -5,6 +5,7 @@ import { User } from '../user.model';
 import { TOASTR_TOKEN, Toastr } from '../service/toastr.service';
 import { AuthserviceService } from '../service/authservice.service';
 import { Router } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
 
 
 @Component({
@@ -52,8 +53,26 @@ export class RegisterComponent implements OnInit {
   submit(){
   this.auth.registerUser(this.registerForm.value)
     .subscribe((data: any) => {
-        console.log(data)
-        this.router.navigate(['Login']);
-    });
+        console.log(data);
+    },
+    err => {
+      if (err instanceof HttpErrorResponse){
+        const errorMessages = new Array<{propName: string; errors: string}>();
+
+        if (err.status === 400){
+          Object.keys(Validators).forEach(prop => {
+            const formControl = this.registerForm.get(prop);
+            if (formControl){
+              // tslint:disable-next-line:label-position
+              serverError: Validators[prop]
+            }
+          })
+        }
+      }
+    }
+    );
+  this.toastr.success('You can now log in');
+  this.router.navigate(['Login']);
   }
+
 }

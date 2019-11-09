@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -7,6 +7,8 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthserviceService } from '../service/authservice.service';
+import { HttpErrorResponse } from '@angular/common/http';
+import { TOASTR_TOKEN, Toastr } from '../service/toastr.service';
 
 @Component({
   selector: 'app-login',
@@ -15,10 +17,12 @@ import { AuthserviceService } from '../service/authservice.service';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
+  isError: boolean = false;
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private auth: AuthserviceService
+    private auth: AuthserviceService,
+    @Inject(TOASTR_TOKEN) private toastr: Toastr
   ) {}
 
   ngOnInit() {
@@ -36,9 +40,10 @@ export class LoginComponent implements OnInit {
           data => {
             console.log(data);
             this.router.navigate(['movies']);
+            this.toastr.success('welcome')
           },
-          err => console.log(err)
-        );
+          err => this.toastr.warning('Invalid email and password')
+        )
       // this.router.navigate(['movies'])
     }
   }
