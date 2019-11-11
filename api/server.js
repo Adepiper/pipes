@@ -15,6 +15,18 @@ app.use(cors());
 
 app.use('/user', userRoutes);
 require('./user/passport');
+app.use((err, req, res) => {
+  console.log(err);
+  res.status(err.status || 500);
+
+  res.json({
+    errors: {
+      message: err.message,
+      error: {}
+    }
+  });
+});
+
 mongoose.connect(config.DB, { useNewUrlParser: true }).then(
   () => {
     console.log('Database is connected');

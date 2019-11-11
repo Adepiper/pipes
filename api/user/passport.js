@@ -11,11 +11,12 @@ passport.use(
       passwordField: 'password'
     },
     (email, password, done) => {
-      // console.log(email);
+      console.log(email);
       User.findOne({ email: email })
         .then(user => {
           // console.log(user);
           if (!user) {
+            // console.log('no user');
             return done(null, false, {
               message: 'that email is not registered'
             });
@@ -31,7 +32,10 @@ passport.use(
             }
           });
         })
-        .catch(err => console.log(err));
+        .catch(err => {
+          console.log(err);
+          return done(err);
+        });
     }
   )
 );

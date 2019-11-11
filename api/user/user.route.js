@@ -49,7 +49,9 @@ userRoutes.post('/login', (req, res, next) => {
     'local',
     { session: false },
     (err, passportUser, info) => {
+      // console.log(err, passportUser, info);
       if (err) {
+        // console.log(err);
         return next(err);
       }
 
@@ -60,7 +62,8 @@ userRoutes.post('/login', (req, res, next) => {
         return res.status(200).json(user);
       }
 
-      return res.status(400).info;
+      // console.log('no user, so it got here');
+      return res.status(400).json(info);
     }
   )(req, res, next);
 
