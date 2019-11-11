@@ -1,12 +1,12 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Input, EventEmitter} from '@angular/core';
 import { IMovie } from '../user.model';
-import { EventEmitter } from 'events';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+  @Input()
     movies: IMovie[] = [{
     id: 1,
     name: ' Avengers (End Game)',
@@ -117,5 +117,15 @@ export class UserService {
       movie.id = 12;
       this.movies.push(movie);
     }
+    searchMovies(searchTerm: string){
+      let results: IMovie[] = []
+      results = results.filter((val) => val.name.includes(searchTerm.toLocaleLowerCase()));
+      console.log(results)
 
+      const emitter = new EventEmitter(true);
+      setTimeout(() => {
+        emitter.emit(results)
+      }, 100);
+      return emitter;
+    }
 }

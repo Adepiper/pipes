@@ -1,10 +1,12 @@
 <div class="container-fluid">
   <div class="row">
+
     <div class="col-md-2 col-sm-3" id="repeat" *ngFor="let movies of movies" >
     <!--  <div class="col-md-1">
         <app-favorite (favorite)="toggleFavorite(movies)" [favorited]="userHasClicked(movies)"></app-favorite>
       </div> -->
   <app-movie-thumbnail [movie]="movies"></app-movie-thumbnail>
   </div>
+
   </div>
 </div>

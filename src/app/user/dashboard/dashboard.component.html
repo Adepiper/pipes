@@ -4,8 +4,8 @@
       <a  href="/Home">
         <img src="../../assets/Rectangle 1 (1).png" alt="">
       </a>
-    <form id="searchForm"  class="form-inline" action="">
-        <input type="search" name="searchTerm" class="form-control mr-sm-2" placeholder="Search for your favourite movies" id="">
+    <form id="searchForm" (ngSubmit)="searchMovies(searchTerm)"  class="form-inline" action="">
+        <input type="search" [(ngModel)]="searchTerm" name="searchTerm" class="form-control mr-sm-2" placeholder="Search for your favourite movies" id="">
       <button class="btn my-2 my-sm-0">
         Search
       </button>

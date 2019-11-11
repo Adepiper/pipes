@@ -23,6 +23,8 @@ import { FavoriteComponent } from './user/favorite/favorite.component';
 import { FavoriteService } from './service/favorite.service';
 import {HttpClientModule} from '@angular/common/http';
 import { AuthGuard } from './guard/auth.guard';
+import { SearchPipe } from './service/search.pipe';
+import { SearchComponent } from './user/search/search.component';
 declare let toastr: Toastr;
 
 @NgModule({
@@ -39,7 +41,9 @@ declare let toastr: Toastr;
     AdminComponent,
     AdminLoginComponent,
     AdminRegisterComponent,
-    FavoriteComponent
+    FavoriteComponent,
+    SearchPipe,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
