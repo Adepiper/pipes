@@ -25,7 +25,11 @@ import {HttpClientModule} from '@angular/common/http';
 import { AuthGuard } from './guard/auth.guard';
 import { SearchPipe } from './service/search.pipe';
 import { SearchComponent } from './user/search/search.component';
+import {JQ_TOKEN} from './service/jquery.service';
+import { ModalComponent } from './user/modal/modal.component';
+import { ModalTriggerDirective } from './service/modal-trigger.directive';
 declare let toastr: Toastr;
+declare let jQuery: any;
 
 @NgModule({
   declarations: [
@@ -43,7 +47,9 @@ declare let toastr: Toastr;
     AdminRegisterComponent,
     FavoriteComponent,
     SearchPipe,
-    SearchComponent
+    SearchComponent,
+    ModalComponent,
+    ModalTriggerDirective
   ],
   imports: [
     BrowserModule,
@@ -60,7 +66,10 @@ declare let toastr: Toastr;
    {
      provide: TOASTR_TOKEN, useValue: toastr
    },
-    RouteActivatorService
+    RouteActivatorService,
+    {
+      provide: JQ_TOKEN, useValue: jQuery
+    }
   ],
   bootstrap: [AppComponent]
 })

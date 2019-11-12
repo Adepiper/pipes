@@ -60,7 +60,7 @@ userRoutes.post('/login', (req, res, next) => {
         return res.status(200).json(user);
       }
 
-      return res.status(400).info;
+      return res.status(400).json(info);
     }
   )(req, res, next);
 

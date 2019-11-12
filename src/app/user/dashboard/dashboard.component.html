@@ -6,10 +6,18 @@
       </a>
     <form id="searchForm" (ngSubmit)="searchMovies(searchTerm)"  class="form-inline" action="">
         <input type="search" [(ngModel)]="searchTerm" name="searchTerm" class="form-control mr-sm-2" placeholder="Search for your favourite movies" id="">
-      <button class="btn my-2 my-sm-0">
+      <button class="btn my-2 my-sm-0" appModalTrigger>
         Search
       </button>
     </form>
+
+    <app-modal title="Matching Movies">
+      <div class="list-group">
+        <a [routerLink]="['/movies', movie.id ]" class="list-group-item" *ngFor="let movie of foundMovies">
+          {{movie.name}}
+        </a>
+      </div>
+    </app-modal>
       </nav>
   <div class="container-fluid">
       <app-movie-list></app-movie-list>

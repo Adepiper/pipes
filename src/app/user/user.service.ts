@@ -119,7 +119,7 @@ export class UserService {
     }
     searchMovies(searchTerm: string){
       let results: IMovie[] = []
-      results = results.filter((val) => val.name.includes(searchTerm.toLocaleLowerCase()));
+      results = this.movies.filter((val) => val.name.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase()))
       console.log(results)
 
       const emitter = new EventEmitter(true);
