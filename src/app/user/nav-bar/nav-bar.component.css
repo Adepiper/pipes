@@ -1,0 +1,23 @@
+nav{
+  background-color: rgba(0, 0, 0, 0.15) !important;
+}
+
+.btn{
+  background-color: firebrick !important;
+  color: white;
+}
+.nav-item{
+  margin-top: -20px !important;
+}
+img{
+  margin-top: 0;
+}
+a{
+  font-size: larger;
+  margin-right: 20px;
+  margin-left: 20px;
+  color: firebrick !important;
+}
+a:hover{
+  text-decoration: underline !important;
+}

@@ -28,6 +28,7 @@ import { SearchComponent } from './user/search/search.component';
 import {JQ_TOKEN} from './service/jquery.service';
 import { ModalComponent } from './user/modal/modal.component';
 import { ModalTriggerDirective } from './service/modal-trigger.directive';
+import { NavBarComponent } from './user/nav-bar/nav-bar.component';
 declare let toastr: Toastr;
 declare let jQuery: any;
 
@@ -49,7 +50,8 @@ declare let jQuery: any;
     SearchPipe,
     SearchComponent,
     ModalComponent,
-    ModalTriggerDirective
+    ModalTriggerDirective,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,

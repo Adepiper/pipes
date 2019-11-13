@@ -1,5 +1,5 @@
 .firstPlace{
-  background: url('../../assets/multipleimages.jpg') repeat 0 0;
+  background: url('../../assets/maincoverviewc.png') repeat 0 0;
 
   padding: 10px !important;
   height: 80vh;
@@ -16,6 +16,10 @@
 
 .link{
 background-color: firebrick !important;
+width: 150px !important;
+}
+a:hover{
+  text-decoration: underline !important;
 }
 
 #faqlink{
@@ -26,6 +30,9 @@ background-color: firebrick !important;
  color: white !important;
 }
 
+nav{
+  background: transparent !important;
+}
 
 
 @-webkit-keyframes slide {
