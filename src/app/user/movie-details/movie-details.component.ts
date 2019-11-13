@@ -17,4 +17,7 @@ export class MovieDetailsComponent implements OnInit {
       (+this.route.snapshot.params['id']);
   }
 
+  getImage(name){
+
+  }
 }
