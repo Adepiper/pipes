@@ -1,4 +1,11 @@
-.details{
+.details {
   background: rgb(42, 42, 43);
-  min-height: 800px;
+  overflow: hidden;
+  position: relative;
+  height: 100vh;
+}
+.overlay {
+  background-color: rgba(0, 0, 0, 0.7);
+  overflow: hidden;
+  height: 100vh;
 }

@@ -10,14 +10,15 @@ import { UserService } from '../user.service';
 })
 export class MovieDetailsComponent implements OnInit {
   movie: any;
-  constructor(private route: ActivatedRoute, private movieService: UserService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private movieService: UserService
+  ) {}
 
   ngOnInit() {
-    this.movie = this.movieService.getMovie
-      (+this.route.snapshot.params['id']);
+    this.movie = this.movieService.getMovie(+this.route.snapshot.params['id']);
+    console.log(this.movie);
   }
 
-  getImage(name){
-
-  }
+  getImage(name) {}
 }

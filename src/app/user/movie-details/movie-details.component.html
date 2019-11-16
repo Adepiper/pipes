@@ -1,6 +1,12 @@
 <!-- <div class="details" [ngStyle]="'background-image': getImage(movie.name)">
  -->
-<div class="details">
+<div
+  class="details"
+  [ngStyle]="{
+    background: 'url(' + movie.imageUrl + ') no-repeat center',
+    'background-size': 'cover'
+  }"
+>
   <div class="overlay">
     <div class="mb-3">
       <app-nav-bar></app-nav-bar>
