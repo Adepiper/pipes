@@ -1,38 +1,63 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="/Home">
+    <img src="../../assets/Rectangle 1 (1).png" alt="" />
+  </a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Favourites</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/movies">Movies</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Log out</a>
+      </li>
+    </ul>
+    <form
+      class="form-inline my-2 my-lg-0"
+      id="searchForm"
+      (ngSubmit)="searchMovies(searchTerm)"
+    >
+      <input
+        class="form-control mr-sm-2"
+        [(ngModel)]="searchTerm"
+        name="searchTerm"
+        type="search"
+        placeholder="Search"
+        aria-label="Search"
+      />
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+        Search
+      </button>
+    </form>
+  </div>
+</nav>
 
- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand"  href="/Home">
-      <img src="../../assets/Rectangle 1 (1).png" alt="">
+<app-modal
+  class="modal fade"
+  title="Matching Movies"
+  [ngClass]="{ show: foundMovies, showModal: foundMovies }"
+>
+  <div class="list-group">
+    <a
+      [routerLink]="['/movies', movie.id]"
+      class="list-group-item"
+      *ngFor="let movie of foundMovies"
+    >
+      {{ movie.name }}
     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="#">Favourites</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/movies">Movies</a>
-          </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Log out</a>
-        </li>
-      </ul>
-      <form class="form-inline my-2 my-lg-0" id="searchForm" (ngSubmit)="searchMovies(searchTerm)" >
-        <input class="form-control mr-sm-2" [(ngModel)]="searchTerm" name="searchTerm"  type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" appModalTrigger type="submit">Search</button>
-      </form>
-    </div>
-  </nav>
-
-
-  <app-modal title="Matching Movies">
-    <div class="list-group">
-      <a [routerLink]="['/movies', movie.id ]" class="list-group-item" *ngFor="let movie of foundMovies">
-        {{movie.name}}
-      </a>
-    </div>
-  </app-modal>
-
+  </div>
+</app-modal>

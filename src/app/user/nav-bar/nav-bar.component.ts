@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter } from '@angular/core';
 import { IMovie } from 'src/app/user.model';
 import { UserService } from '../user.service';
 
@@ -8,17 +8,15 @@ import { UserService } from '../user.service';
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent implements OnInit {
-  searchTerm: string = "";
-foundMovies: IMovie[];
-  constructor(private movieService: UserService) { }
+  searchTerm: string = '';
+  foundMovies: IMovie[];
+  constructor(private movieService: UserService) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
-  searchMovies(searchTerm){
-    this.movieService.searchMovies(searchTerm)
-      .subscribe( movies => {
-        this.foundMovies = movies;
-      })
+  searchMovies(searchTerm) {
+    this.movieService.searchMovies(searchTerm).subscribe(movies => {
+      this.foundMovies = movies;
+    });
   }
 }
