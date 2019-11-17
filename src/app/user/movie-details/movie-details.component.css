@@ -1,4 +1,15 @@
 .details{
   background: rgb(42, 42, 43);
-  min-height: 800px;
+
+
+}
+.overlay{
+  background-color: rgba(0,0,0, 0.7);
+  overflow: hidden;
+  height: 100vh;
+}
+.row{
+  margin-top: 25% !important;
+  font-size: large;
+  word-spacing: 5px;
 }

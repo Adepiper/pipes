@@ -1,4 +1,9 @@
-<div class="details" [ngStyle]="'background-image': getImage(movie.name)">
+<div class="details" [ngStyle]="{
+  'background-image': 'url(' + movie.bgImg + ')',
+  'background-repeat': 'no-repeat',
+  'background-position': 'center',
+  'background-size': 'cover'
+}">
   <div class="overlay">
     <div class="mb-3">
       <app-nav-bar></app-nav-bar>
@@ -6,13 +11,9 @@
   <div class="container">
 <div class="row text-white">
   <div class="col-md-6">
-    <img [src]="movie?.imageUrl" alt="">
-      <div class="font-weight-bold">
-    {{movie?.name}}
-    </div>
     <div>
       <label class="font-weight-bold" for="">Time: </label> {{movie?.time}}</div>
-    <div> <span class="font-weight-bold">Plot: </span> {{movie?.plot}}</div>
+    <div> {{movie?.plot}}</div>
     </div>
     </div>
 

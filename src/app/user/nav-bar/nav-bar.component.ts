@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { IMovie } from 'src/app/user.model';
 import { UserService } from '../user.service';
+import { AuthserviceService } from 'src/app/service/authservice.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav-bar',
@@ -10,7 +12,7 @@ import { UserService } from '../user.service';
 export class NavBarComponent implements OnInit {
   searchTerm: string = "";
 foundMovies: IMovie[];
-  constructor(private movieService: UserService) { }
+  constructor(private movieService: UserService, private auth : AuthserviceService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -20,5 +22,11 @@ foundMovies: IMovie[];
       .subscribe( movies => {
         this.foundMovies = movies;
       })
+  }
+
+  logOut(){
+    this.auth.logOut().subscribe(
+      this.router.navigate[('/Login')]
+    )
   }
 }

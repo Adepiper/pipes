@@ -6,10 +6,13 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./modal.component.css']
 })
 export class ModalComponent implements OnInit {
-  @Input() title: string
+  @Input() title: string;
   constructor() { }
 
   ngOnInit() {
   }
-
+  close(){
+    document.getElementsByTagName('app-modal')[0].classList.remove('show');
+    document.getElementsByTagName('app-modal')[0].classList.remove('showModal')
+  }
 }

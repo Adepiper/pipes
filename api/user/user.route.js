@@ -73,4 +73,8 @@ userRoutes.post('/login', (req, res, next) => {
   })(req, res, next);
 }); */
 
+userRoutes.get('/logout', (req, res) => {
+  req.logout();
+})
+
 module.exports = userRoutes;

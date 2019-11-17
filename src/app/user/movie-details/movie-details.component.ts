@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { User } from 'src/app/user.model';
+import { User, IMovie } from 'src/app/user.model';
 import { UserService } from '../user.service';
 
 @Component({
@@ -10,6 +10,7 @@ import { UserService } from '../user.service';
 })
 export class MovieDetailsComponent implements OnInit {
   movie: any;
+
   constructor(private route: ActivatedRoute, private movieService: UserService) { }
 
   ngOnInit() {
@@ -17,7 +18,4 @@ export class MovieDetailsComponent implements OnInit {
       (+this.route.snapshot.params['id']);
   }
 
-  getImage(name){
-
-  }
 }

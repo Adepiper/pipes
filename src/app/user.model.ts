@@ -13,5 +13,6 @@ export interface IMovie {
   year: string;
   imageUrl: string;
   plot: string;
+  bgImg: string;
   favorite: string[]
 }

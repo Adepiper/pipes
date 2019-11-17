@@ -40,5 +40,12 @@ export class AuthserviceService {
     return this.http.post('http://localhost:3000/user/signup', body, options)
   }
 
+  logOut(){
+    const headers = new HttpHeaders().set('Content-Type', 'application/json')
+    const options = {
+      headers
+    }
+    return this.http.post('http://localhost:3000/user/logout', {}, options)
+  }
 
 }
