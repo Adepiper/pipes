@@ -3,6 +3,7 @@ import { IMovie } from 'src/app/user.model';
 import { UserService } from '../user.service';
 import { AuthserviceService } from 'src/app/service/authservice.service';
 import { Router } from '@angular/router';
+import { LocalStorageService } from 'ngx-webstorage';
 
 @Component({
   selector: 'app-nav-bar',
@@ -12,7 +13,11 @@ import { Router } from '@angular/router';
 export class NavBarComponent implements OnInit {
   searchTerm: string = "";
 foundMovies: IMovie[];
-  constructor(private movieService: UserService, private auth : AuthserviceService, private router: Router) { }
+  constructor(private movieService: UserService,
+              private auth : AuthserviceService,
+              private router: Router,
+
+              ) { }
 
   ngOnInit() {
   }
@@ -25,8 +30,10 @@ foundMovies: IMovie[];
   }
 
   logOut(){
-    this.auth.logOut().subscribe(
-      this.router.navigate[('/Login')]
-    )
+    this.auth.logOut().subscribe( data => {
+      console.log(data);
+      localStorage.removeItem('user');
+      this.router.navigate(['/Login']);
+    });
   }
 }

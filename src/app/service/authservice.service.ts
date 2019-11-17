@@ -3,6 +3,7 @@ import { User } from '../user.model';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {tap, catchError} from 'rxjs/operators'
 import { of } from 'rxjs';
+import { LocalStorageService } from 'ngx-webstorage';
 
 @Injectable({
   providedIn: 'root'
@@ -45,7 +46,7 @@ export class AuthserviceService {
     const options = {
       headers
     }
-    return this.http.post('http://localhost:3000/user/logout', {}, options)
+    return this.http.get('http://localhost:3000/user/logout', options)
   }
 
 }

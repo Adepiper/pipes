@@ -67,14 +67,9 @@ userRoutes.post('/login', (req, res, next) => {
   // res.status(401).json({ message: 'email or password incorrect' });
 });
 
-/* userRoutes.route('/login').get((req, res, next) => {
-  passport.authenticate('local', {
-    failureFlash: true
-  })(req, res, next);
-}); */
-
-userRoutes.get('/logout', (req, res) => {
-  req.logout();
+userRoutes.get('/logout', async function (req, res) {
+ await req.logout();
+ res.status(200).json({message: "logged out successfully"})
 })
 
 module.exports = userRoutes;

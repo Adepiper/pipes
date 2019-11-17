@@ -12,12 +12,11 @@ const app = express();
 let port = process.env.port || 3000;
 app.use(bodyParser.json());
 app.use(cors());
-
 app.use('/user', userRoutes);
 require('./user/passport');
 
-app.use((err, req, res) => {
-  console.log(err)
+app.use((err, req, res, next) => {
+  console.log(err, res)
   res.status(err.status || 500)
 
   res.json({

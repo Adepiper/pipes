@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 import { AuthserviceService } from '../service/authservice.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { TOASTR_TOKEN, Toastr } from '../service/toastr.service';
+import { LocalStorageService } from 'ngx-webstorage';
 
 @Component({
   selector: 'app-login',
@@ -37,10 +38,11 @@ export class LoginComponent implements OnInit {
       this.auth
         .loginUser(this.loginForm.value.email, this.loginForm.value.password)
         .subscribe(
-          data => {
+          (data: any) => {
             console.log(data);
+            localStorage.setItem('user', data);
             this.router.navigate(['movies']);
-            this.toastr.success('welcome')
+            this.toastr.success('welcome');
           },
           err => this.toastr.warning('Invalid email and password')
         )
