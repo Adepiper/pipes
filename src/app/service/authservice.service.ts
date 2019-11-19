@@ -21,7 +21,7 @@ export class AuthserviceService {
       headers
     }
     console.log(body);
-    return this.http.post('http://localhost:3000/user/login', body, options);
+    return this.http.post('https://adepiper.herokuapp.com/user/login', body, options)
   }
 
 
@@ -38,7 +38,7 @@ export class AuthserviceService {
     phone: user.phone,
     }
 
-    return this.http.post('http://localhost:3000/user/signup', body, options)
+    return this.http.post('https://adepiper.herokuapp.com/user/signup', body, options)
   }
 
   logOut(){
@@ -46,7 +46,12 @@ export class AuthserviceService {
     const options = {
       headers
     }
-    return this.http.get('http://localhost:3000/user/logout', options)
+    return this.http.get('https://adepiper.herokuapp.com/user/logout', options)
   }
+
+    isAuthenticated(){
+      return !!this.user;
+    }
+
 
 }

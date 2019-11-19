@@ -57,25 +57,13 @@ export class RegisterComponent implements OnInit {
   this.auth.registerUser(this.registerForm.value)
     .subscribe((data: any) => {
         console.log(data);
+        this.router.navigate(['Login']);
+        this.toastr.success('You can now log in');
     },
     err => {
-      if (err instanceof HttpErrorResponse){
-        const errorMessages = new Array<{propName: string; errors: string}>();
-
-        if (err.status === 400){
-          Object.keys(Validators).forEach(prop => {
-            const formControl = this.registerForm.get(prop);
-            if (formControl){
-              // tslint:disable-next-line:label-position
-              serverError: Validators[prop]
-            }
-          })
-        }
-      }
+      console.log(err);
     }
     );
-  this.toastr.success('You can now log in');
-  this.router.navigate(['Login']);
   }
 
 }

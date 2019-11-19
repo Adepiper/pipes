@@ -4,7 +4,8 @@
          <a class="navbar-brand" href="/Home">
           <img src="../../assets/Rectangle 1 (1).png" height="70" width="60" class="d-inline-block align-top" alt="">
          </a>
-        <a class="float-right nav-item text-decoration-none link btn text-light" href="/Login">Login</a>
+         <a *ngIf="isAuthenticated()" class="float-right nav-item text-decoration-none link btn text-light" href="/movies">Movies</a>
+        <a *ngIf="!isAuthenticated()" class="float-right nav-item text-decoration-none link btn text-light" href="/Login">Login</a>
       </nav>
 
   <div class="jumbotron text-center text-light">

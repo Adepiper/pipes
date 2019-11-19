@@ -14,7 +14,7 @@ export class NavBarComponent implements OnInit {
   searchTerm: string = "";
 foundMovies: IMovie[];
   constructor(private movieService: UserService,
-              private auth : AuthserviceService,
+              public auth : AuthserviceService,
               private router: Router,
 
               ) { }
