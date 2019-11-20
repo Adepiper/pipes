@@ -1,6 +1,7 @@
 {
   "/api":{
-    "target": "http://localhost:3000",
-    "secure": false
+    "target": "https://adepiper.herokuapp.com",
+    "secure": false,
+    "logLevel": "debug"
   }
 }
