@@ -15,10 +15,12 @@
 .btn{
   background-color: firebrick !important;
   color: white;
+  border-radius: 30px;
   }
 
   input{
     background-color: darkgray;
+    border-radius: 30px;
   }
 
   #remember{

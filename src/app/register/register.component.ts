@@ -56,14 +56,13 @@ export class RegisterComponent implements OnInit {
   submit(){
   this.auth.registerUser(this.registerForm.value)
     .subscribe((data: any) => {
-        console.log(data);
-        this.router.navigate(['Login']);
-        this.toastr.success('You can now log in');
+      console.log(data);
     },
     err => {
       console.log(err);
-    }
+    },
     );
+  this.router.navigate(['Login']);
+  this.toastr.success('You can now log in');
   }
-
 }

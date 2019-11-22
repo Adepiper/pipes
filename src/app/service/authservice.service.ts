@@ -1,16 +1,18 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { User } from '../user.model';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import {tap, catchError} from 'rxjs/operators'
-import { of } from 'rxjs';
+import {tap, catchError, retry} from 'rxjs/operators'
+import { of, throwError } from 'rxjs';
 import { LocalStorageService } from 'ngx-webstorage';
+import { error } from '@angular/compiler/src/util';
+import { TOASTR_TOKEN, Toastr } from './toastr.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthserviceService {
   user: User;
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, @Inject(TOASTR_TOKEN) private toastr: Toastr) { }
 
 
   loginUser(email: string, password: string){
@@ -22,6 +24,9 @@ export class AuthserviceService {
     }
     console.log(body);
     return this.http.post('https://adepiper.herokuapp.com/user/login', body, options)
+                .pipe(retry(1),
+                catchError(this.handleError)
+                );
   }
 
 
@@ -39,6 +44,9 @@ export class AuthserviceService {
     }
 
     return this.http.post('https://adepiper.herokuapp.com/user/signup', body, options)
+                .pipe(retry(1),
+               catchError(this.handleError)
+                );
   }
 
   logOut(){
@@ -53,5 +61,14 @@ export class AuthserviceService {
       return !!this.user;
     }
 
-
+    handleError(error) {
+      let errorMessage = '';
+      if (error.error instanceof ErrorEvent ){
+        errorMessage = `Error: ${error.error.message}`;
+      } else {
+        errorMessage = `Message: ${error.message}`;
+      }
+      window.alert(errorMessage);
+      return throwError(errorMessage);
+    }
 }
