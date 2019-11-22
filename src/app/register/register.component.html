@@ -3,7 +3,7 @@
       <div class="container-fluid firstPlace">
           <div class="row">
             <div class="col-6 mt-3">
-              <a  href="/Home">
+              <a  href="#/Home">
                 <img src="../../assets/Rectangle 1 (1).png" alt="">
               </a>
             </div>
@@ -53,7 +53,7 @@
                   </div>
                   </div>
                   </div>
-                  <span class="font-weight-bold" id="remember" ><p>got an account?  <a class="font-weight-normal" href="/Login">Sign In</a></p></span>
+                  <span class="font-weight-bold" id="remember" ><p>got an account?  <a class="font-weight-normal" [routerLink]="['/#/Login']">Sign In</a></p></span>
                   <div class="  mt-2">
                     <button type="submit" [disabled]="!registerForm.valid" class="btn form-control">Join now</button>
                   </div>

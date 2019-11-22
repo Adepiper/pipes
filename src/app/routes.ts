@@ -23,37 +23,37 @@ export const appRoutes: Routes = [
   path: '', redirectTo: '/Home', pathMatch: 'full'
 },
 {
-  path: 'Login',
+  path: '#/Login',
   component: LoginComponent
 },
 {
-  path: 'join',
+  path: '#/join',
   component: RegisterComponent
 },
 {
-  path: 'movies',
+  path: '#/movies',
   component: DashboardComponent,
   canActivate: [AuthGuard]
 },
 {
-  path: 'movies/details/:id',
+  path: '#/movies/details/:id',
   component: MovieDetailsComponent,
   canActivate: [RouteActivatorService]
 },
 {
-  path: 'error',
+  path: '#/error',
   component: ErrorpageComponent
 },
 {
-  path: 'admin/register',
+  path: '#/admin/register',
   component: AdminRegisterComponent
 },
  {
-   path: 'admin',
+   path: '#/admin',
    component: AdminLoginComponent
  },
  {
-   path: 'update',
+   path: '#/update',
    component: AdminComponent
  }
 ]

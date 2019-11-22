@@ -1,7 +1,7 @@
 
 
  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand"  href="/Home">
+    <a class="navbar-brand"  href="#/Home">
       <img src="../../assets/Rectangle 1 (1).png" alt="">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -14,7 +14,7 @@
           <a class="nav-link" href="#">Favourites</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/movies">Movies</a>
+            <a class="nav-link"  [routerLink]="['/#/movies']">Movies</a>
           </li>
         <li class="nav-item">
           <a class="nav-link logOut" (click)="logOut()">Log out</a>
@@ -30,7 +30,7 @@
 
   <app-modal  class="modal fade" [ngClass]="{show: foundMovies, showModal: foundMovies}" >
     <div class="list-group">
-      <a [routerLink]="['/movies/details', movie.id ]" class="list-group-item" *ngFor="let movie of foundMovies">
+      <a [routerLink]="['/#/movies/details', movie.id ]" class="list-group-item" *ngFor="let movie of foundMovies">
         {{movie.name}}
       </a>
     </div>

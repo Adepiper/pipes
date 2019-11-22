@@ -31,7 +31,7 @@ export class AdminRegisterComponent implements OnInit {
  submit(){
    if (this.adminForm.valid){
      console.log(this.adminForm.value);
-     this.router.navigate(['/admin']);
+     this.router.navigate(['#/admin']);
    }
  }
 

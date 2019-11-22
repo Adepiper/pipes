@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
           (data: any) => {
             console.log(data);
             localStorage.setItem('user', data);
-            this.router.navigate(['movies']);
+            this.router.navigate(['#/movies']);
             this.toastr.success('welcome');
           },
           err => this.toastr.warning('Invalid email and password')

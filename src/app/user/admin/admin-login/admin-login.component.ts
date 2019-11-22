@@ -21,7 +21,7 @@ export class AdminLoginComponent implements OnInit {
   login(){
     if (this.adminLogin.valid) {
       console.log(this.adminLogin.value);
-      this.router.navigate(['update']);
+      this.router.navigate(['#/update']);
     }
   }
 

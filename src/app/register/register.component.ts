@@ -62,7 +62,7 @@ export class RegisterComponent implements OnInit {
       console.log(err);
     },
     );
-  this.router.navigate(['Login']);
+  this.router.navigate(['#/Login']);
   this.toastr.success('You can now log in');
   }
 }

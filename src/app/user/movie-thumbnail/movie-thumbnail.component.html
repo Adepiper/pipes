@@ -1,5 +1,5 @@
 
-  <div [routerLink]="['/movies/details', movie.id]" class="text-center font-weight-bold text-white">
+  <div [routerLink]="['/#/movies/details', movie.id]" class="text-center font-weight-bold text-white">
     <img [src]="movie?.imageUrl" alt="">
     <div>
     {{movie?.name | uppercase}}

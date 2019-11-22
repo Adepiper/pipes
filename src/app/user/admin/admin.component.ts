@@ -25,6 +25,6 @@ export class AdminComponent implements OnInit {
   submit() {
     this.movieService.saveMovie(this.newMovie.value);
     console.log(this.newMovie.value);
-    this.router.navigate(['/movies'])
+    this.router.navigate(['#/movies'])
   }
 }

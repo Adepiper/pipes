@@ -33,7 +33,7 @@ foundMovies: IMovie[];
     this.auth.logOut().subscribe( data => {
       console.log(data);
       localStorage.removeItem('user');
-      this.router.navigate(['/Login']);
+      this.router.navigate(['#/Login']);
     });
   }
 }
