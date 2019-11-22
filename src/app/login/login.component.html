@@ -15,7 +15,7 @@
                   <div *ngIf="isError" class="alert alert-warning text-center" role="alert">
                      Invalid email or password
                   </div>
-                <form action="" (ngSubmit) = "submit(formValues)" [formGroup]= "loginForm" >
+                <form action="" (ngSubmit) = "submit()" [formGroup]= "loginForm" >
                   <div class="form-group m-3" [ngClass]="{'error':loginForm.controls.email.invalid && loginForm.controls.email.touched }">
                       <h2 class="text-white mb-4">Sign In</h2>
                       <em *ngIf="loginForm.controls.email.invalid && loginForm.controls.email.touched && loginForm.controls.email.errors.required ">Required</em>

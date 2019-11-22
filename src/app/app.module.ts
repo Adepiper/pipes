@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {RouterModule} from '@angular/router'
+import {RouterModule} from '@angular/router';
 import { AppComponent } from './app.component';
 import { appRoutes } from './routes';
 import { HomeComponent } from './home/home.component';
@@ -24,14 +24,14 @@ import { FavoriteService } from './service/favorite.service';
 import {HttpClientModule} from '@angular/common/http';
 import { AuthGuard } from './guard/auth.guard';
 import { SearchPipe } from './service/search.pipe';
-import { SearchComponent } from './user/search/search.component';
+
 import {JQ_TOKEN} from './service/jquery.service';
 import { ModalComponent } from './user/modal/modal.component';
 import { ModalTriggerDirective } from './service/modal-trigger.directive';
 import { NavBarComponent } from './user/nav-bar/nav-bar.component';
 
-declare let toastr: Toastr;
-declare let jQuery: any;
+const toastr: Toastr = window['toastr'];
+const jQuery = window['$'];
 
 @NgModule({
   declarations: [
@@ -49,7 +49,6 @@ declare let jQuery: any;
     AdminRegisterComponent,
     FavoriteComponent,
     SearchPipe,
-    SearchComponent,
     ModalComponent,
     ModalTriggerDirective,
     NavBarComponent
